@@ -29,6 +29,14 @@ struct Vertex2D {
 	glm::vec3 Color;
 	// texCoords
 	glm::vec2 TexCoords;
+
+	friend bool operator==(const Vertex2D& lhs, const Vertex2D& rhs)
+	{
+		if (lhs.Position == rhs.Position && lhs.Color == rhs.Color && lhs.TexCoords == rhs.TexCoords)
+			return true;
+		else
+			return false;
+	}
 };
 
 class Mesh2D {
@@ -82,6 +90,15 @@ public:
 		this->VBO = mesh.VBO;
 		this->EBO = mesh.EBO;
 		return *this;
+	}
+
+	friend bool Mesh2D::operator==(const Mesh2D& lhs, const Mesh2D& rhs)
+	{
+		if (lhs.vertices == rhs.vertices && lhs.indices == rhs.indices
+			&& lhs.VAO == rhs.VAO && lhs.VBO == rhs.VBO && lhs.EBO == rhs.EBO)
+			return true;
+		else
+			return false;
 	}
 
 private:

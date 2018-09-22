@@ -165,8 +165,13 @@ public:
 	{
 		if (this->ID == shader.ID)
 			return *this;
-		ID = shader.ID;
+		this->ID = shader.ID;
 		return *this;
+	}
+
+	friend bool Shader::operator==(const Shader& lhs, const Shader& rhs)
+	{
+		return (lhs.ID == rhs.ID);
 	}
 
 private:

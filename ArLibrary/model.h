@@ -58,6 +58,21 @@ public:
 		shader.setMat4("view", view);
 	}
 
+	Model& Model::operator=(const Model& model)
+	{
+		this->textures_loaded = model.textures_loaded;
+		this->meshes = model.meshes;
+		return *this;
+	}
+
+	friend bool Model::operator==(const Model& lhs, const Model& rhs)
+	{
+		if (lhs.textures_loaded == rhs.textures_loaded && lhs.meshes == rhs.meshes)
+			return true;
+		else
+			return false;
+	}
+
 private:
 	/*  Functions   */
 	// loads a model with supported ASSIMP extensions from file and stores the resulting meshes in the meshes vector.

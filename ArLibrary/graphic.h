@@ -60,4 +60,5 @@ public:
 
 	// overload operators
 	Graphic& Graphic::operator=(Graphic& graphic);
+	friend bool Graphic::operator==(const Graphic& lhs, const Graphic& rhs);
 };

@@ -57,4 +57,5 @@ public:
 
 	// overload operators
 	Image& Image::operator=(Image& image);
+	friend bool Image::operator==(const Image& lhs, const Image& rhs);
 };

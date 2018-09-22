@@ -242,10 +242,19 @@ void Graphic::setMesh(Mesh2D mesh)
 // overload operators
 Graphic& Graphic::operator=(Graphic& graphic)
 {
-	m_path = graphic.m_path;
-	m_vertex = graphic.m_vertex;
-	m_indices = graphic.m_indices;
-	m_shader = graphic.m_shader;
-	m_mesh = graphic.m_mesh;
+	this->m_path = graphic.m_path;
+	this->m_vertex = graphic.m_vertex;
+	this->m_indices = graphic.m_indices;
+	this->m_shader = graphic.m_shader;
+	this->m_mesh = graphic.m_mesh;
+}
+
+bool operator==(const Graphic& lhs, const Graphic& rhs)
+{
+	if (lhs.m_vertex == rhs.m_vertex && lhs.m_indices == rhs.m_indices
+		&& lhs.m_shader == rhs.m_shader && lhs.m_mesh == rhs.m_mesh)
+		return true;
+	else
+		return false;
 }
 /*  End of Graphic  */

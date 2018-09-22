@@ -178,10 +178,10 @@ void Image::adjust(int width, int height, int channels)
 Image& Image::operator=(Image& image)
 {
 	// image here
-	m_width = image.m_width;
-	m_height = image.m_height;
-	m_nrchannels = image.m_nrchannels;
-	m_data = image.m_data;
+	this->m_width = image.m_width;
+	this->m_height = image.m_height;
+	this->m_nrchannels = image.m_nrchannels;
+	this->m_data = image.m_data;
 
 	// graphic here
 	this->setPath(image.path());
@@ -190,5 +190,14 @@ Image& Image::operator=(Image& image)
 	this->setShader(image.shader());
 	this->setMesh(image.mesh());
 	return *this;
+}
+
+bool operator==(const Image& lhs, const Image& rhs)
+{
+	if (lhs.m_width == rhs.m_width && lhs.m_height == rhs.m_height && lhs.m_nrchannels == rhs.m_nrchannels
+		&& lhs.m_data == rhs.m_data && static_cast<Graphic>(lhs) == static_cast<Graphic>(rhs))
+		return true;
+	else
+		return false;
 }
 /*  End of Image  */

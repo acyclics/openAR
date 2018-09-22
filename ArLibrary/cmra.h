@@ -19,6 +19,9 @@ class cam : Graphic
 	cv::VideoCapture m_cam;
 
 public:
-	cam(float vertices[], std::vector<unsigned int> indices, float SCR_WIDTH, float SCR_HEIGHT);
+	cam(float vertices[], std::vector<unsigned int> indices, float SCR_WIDTH = 720, float SCR_HEIGHT = 480);
+	cam(int device, float vertices[], std::vector<unsigned int> indices, float SCR_WIDTH = 720, float SCR_HEIGHT = 480);
+	cam(string filename, float vertices[], std::vector<unsigned int> indices, float SCR_WIDTH = 720, float SCR_HEIGHT = 480);
+
 	void draw();
 };

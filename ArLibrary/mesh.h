@@ -24,12 +24,29 @@ struct Vertex {
 	glm::vec3 Tangent;
 	// bitangent
 	glm::vec3 Bitangent;
+
+	friend bool operator==(const Vertex& lhs, const Vertex& rhs)
+	{
+		if (lhs.Position == rhs.Position && lhs.Normal == rhs.Normal && lhs.TexCoords == rhs.TexCoords
+			&& lhs.Tangent == rhs.Tangent && lhs.Bitangent == rhs.Bitangent)
+			return true;
+		else
+			return false;
+	}
 };
 
 struct Texture {
 	unsigned int id;
 	string type;
 	string path;
+
+	friend bool operator==(const Texture& lhs, const Texture& rhs)
+	{
+		if (lhs.id == rhs.id && lhs.type == rhs.type && lhs.path == rhs.path)
+			return true;
+		else
+			return false;
+	}
 };
 
 class Mesh {
@@ -90,6 +107,26 @@ public:
 
 		// always good practice to set everything back to defaults once configured.
 		glActiveTexture(GL_TEXTURE0);
+	}
+	
+	Mesh& Mesh::operator=(const Mesh& mesh)
+	{
+		this->vertices = mesh.vertices;
+		this->indices = mesh.indices;
+		this->textures = mesh.textures;
+		this->VAO = mesh.VAO;
+		this->VBO = mesh.VBO;
+		this->EBO = mesh.EBO;
+		return *this;
+	}
+
+	friend bool Mesh::operator==(const Mesh& lhs, const Mesh& rhs)
+	{
+		if (lhs.vertices == rhs.vertices && lhs.indices == rhs.indices && lhs.textures == rhs.textures
+			&& lhs.VAO == rhs.VAO && lhs.VBO == rhs.VBO && lhs.EBO == rhs.EBO)
+			return true;
+		else
+			return false;
 	}
 
 private:

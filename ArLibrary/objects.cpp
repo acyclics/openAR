@@ -62,14 +62,14 @@ Objects& Objects::operator=(const Objects obj)
 {
 	if (this == &obj)
 		return *this;
-	m_mat = obj.m_mat.clone();
-	m_name = obj.m_name;
+	this->m_mat = obj.m_mat.clone();
+	this->m_name = obj.m_name;
 	return *this;
 }
 
 bool Objects::operator==(const Objects& obj)
 {
-	if (sum(m_mat != obj.m_mat) == Scalar(0, 0, 0, 0) && m_name == obj.m_name)
+	if (sum(this->m_mat != obj.m_mat) == Scalar(0, 0, 0, 0) && this->m_name == obj.m_name)
 		return true;
 	else
 		return false;
@@ -77,6 +77,6 @@ bool Objects::operator==(const Objects& obj)
 
 std::ostream& Objects::operator<<(std::ostream &out)
 {
-	out << m_name;
+	out << this->m_name;
 	return out;
 }

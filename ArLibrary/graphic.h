@@ -57,4 +57,7 @@ public:
 	void setIndices(vector<unsigned int> indices);
 	void setShader(Shader shader);
 	void setMesh(Mesh2D mesh);
+
+	// overload operators
+	Graphic& Graphic::operator=(Graphic& graphic);
 };

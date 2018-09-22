@@ -238,4 +238,14 @@ void Graphic::setMesh(Mesh2D mesh)
 {
 	m_mesh = mesh;
 }
+
+// overload operators
+Graphic& Graphic::operator=(Graphic& graphic)
+{
+	m_path = graphic.m_path;
+	m_vertex = graphic.m_vertex;
+	m_indices = graphic.m_indices;
+	m_shader = graphic.m_shader;
+	m_mesh = graphic.m_mesh;
+}
 /*  End of Graphic  */

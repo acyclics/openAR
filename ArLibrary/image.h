@@ -45,7 +45,7 @@ public:
 
 	// functions
 	/*
-	If you want the each time we call draw to instantly draw the image without waiting for end of frame buffer,
+	If you want that each time we call draw to instantly draw the image without waiting for end of frame buffer,
 	then add "glfwSwapBuffers(window);" to the end of the draw function
 	*/
 	void draw();
